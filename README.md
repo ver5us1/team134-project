@@ -134,7 +134,7 @@ Matplotlib · Seaborn · Plotly · scikit-learn metrics
 ---
 
 ## 📂 Структура репозитория
-
+```text
 team134-project/
 │
 ├── 📄 README.md                    # описание проекта
@@ -174,7 +174,7 @@ team134-project/
 │
 └── 📁 tests/                       # тесты
     └── 🐍 test_pipeline.py
-
+```
 
 ---
 
