@@ -45,7 +45,7 @@
 | 1 | Крамсков Даниил Павлович | 🧭 Капитан | [@username](https://github.com/username) |
 | 2 | Танташев Руслан Рафаильевич | 💻 ML-инженер | [@RusTantas](https://github.com/RusTantas) |
 | 3 | Давыдов Николай Александрович | 💻 ML-инженер | [@username](https://github.com/username) |
-| 4 | Бунтин Владислав Романович | 💻 ML-инженер | [@username](https://github.com/username) |
+| 4 | Бунтин Владислав Романович | 💻 ML-инженер | [@ver5us1](https://github.com/ver5us1) |
 
 ### 🎓 Руководители проекта
 
