@@ -1,0 +1,18 @@
+[project]
+name = "team134-project"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "catboost>=1.2.10",
+    "fastapi>=0.148.0",
+    "jupyter>=1.1.1",
+    "lightgbm>=4.7.0",
+    "matplotlib>=3.11.2",
+    "mlflow>=3.17.1",
+    "numpy>=2.5.4",
+    "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
+    "seaborn>=0.13.2",
+    "uvicorn>=0.54.0",
+    "xgboost>=3.4.1",
+]
