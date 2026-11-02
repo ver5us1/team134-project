@@ -1,3 +1,9 @@
+Понял тебя! Сделаем README максимально безопасным и красивым. Уберем все реальные IP и пароли, заменим их на плейсхолдеры со звездочками, а также обновим структуру проекта (добавим новые файлы `db.py` и `.env.example`) и структуру ML-стека (добавим `FastAPI` и `MLflow`, которые были в плане, но потерялись в табличке).
+
+Вот готовый файл. Скопируй его целиком и замени содержимое своего `README.md`.
+
+***
+
 # ⚡ Прогнозирование цен на AFRR capacity маркете электроэнергии Day-Ahead
 
 <div align="center">
@@ -37,20 +43,50 @@
 
 ---
 
-
 ## 👥 Состав команды
 
 | № | ФИО | Роль | GitHub |
 |:-:|-----|------|--------|
 | 1 | Крамсков Даниил Павлович | 🧭 Капитан | [@username](https://github.com/username) |
-| 2 | Танташев Руслан Рафаильевич | 💻 ML-инженер | [@RusTantas](https://github.com/RusTantas) |
+| 2 | Танташев Руслан Рафаильевич | 💻 ML-инженер | [@ver5us1](https://github.com/ver5us1) |
 | 3 | Давыдов Николай Александрович | 💻 ML-инженер | [@username](https://github.com/username) |
 | 4 | Бунтин Владислав Романович | 💻 ML-инженер | [@username](https://github.com/username) |
 
 ### 🎓 Руководители проекта
 
 - **Сулейманов Нихат**
+- **Александр Голубев**
 
+---
+
+## 🗄 База данных
+
+Проект использует **PostgreSQL 16**, развернутый на отдельном удаленном сервере. Доступ к базе имеют все участники команды.
+
+**Параметры подключения:**
+- **Host:** `***.***.***.***`
+- **Port:** `5432`
+- **Database:** `team134_db`
+- **User:** `team134_user`
+- **Таблица с данными:** `afrr_prices`
+
+### 🚀 Как подключиться (для участников команды)
+
+1. **Скопируйте шаблон окружения:**
+   ```bash
+   cp .env.example .env
+   ```
+2. **Откройте файл `.env` и впишите реальные данные** (IP-адрес сервера и пароль запросите у капитана команды в личных сообщениях).
+3. **Установите/синхронизируйте зависимости:**
+   ```bash
+   uv sync
+   ```
+4. **Проверьте подключение:**
+   ```bash
+   uv run python -m src.data.test_connection
+   ```
+
+> ⚠️ **Безопасность:** файл `.env` содержит конфиденциальные данные и добавлен в `.gitignore`. Никогда не коммитьте его в репозиторий. В репозитории хранится только безопасный шаблон `.env.example`.
 
 ---
 
@@ -84,7 +120,7 @@
 | Период | Этап | Статус |
 |--------|------|:------:|
 | **До 6 октября** | Фиксация темы и плана, создание репозитория на GitHub | ✅ |
-| **До 7 ноября** | Сбор данных о ценах Day-Ahead Capacity и влияющих факторах. EDA: сезонность, выбросы, взаимосвязи признаков. Визуализации и выводы | 🔄 |
+| **До 10 ноября** | Сбор данных о ценах Day-Ahead Capacity и влияющих факторах. EDA: сезонность, выбросы, взаимосвязи признаков. Визуализации и выводы | 🔄 |
 | **До 27 ноября** | Выбор метрики, построение бейзлайна и первых ML-моделей, подбор гиперпараметров, сравнение результатов | ⏳ |
 | **До 15 декабря** | Реализация сервиса на FastAPI: принимает данные — возвращает прогноз цены | ⏳ |
 | **10–15 января** | 🎤 Промежуточная защита: итоги за семестр и планы на второй | ⏳ |
@@ -124,6 +160,7 @@
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange?logo=jupyter)
 ![Git](https://img.shields.io/badge/Git-VCS-red?logo=git)
+![uv](https://img.shields.io/badge/uv-package%20manager-DE5FE1)
 
 **Данные и ML:**
 ![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy)
@@ -132,10 +169,15 @@
 ![CatBoost](https://img.shields.io/badge/CatBoost-yellow)
 ![XGBoost](https://img.shields.io/badge/XGBoost-green)
 ![LightGBM](https://img.shields.io/badge/LightGBM-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
 
 **Deep Learning:**
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow)
+
+**Backend & MLOps:**
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![MLflow](https://img.shields.io/badge/MLflow-0194E2?logo=mlflow&logoColor=white)
 
 **Визуализация и метрики:**
 Matplotlib · Seaborn · Plotly · scikit-learn metrics
@@ -143,11 +185,14 @@ Matplotlib · Seaborn · Plotly · scikit-learn metrics
 ---
 
 ## 📂 Структура репозитория
+
 ```text
 team134-project/
 │
 ├── 📄 README.md                    # описание проекта
-├── 📄 requirements.txt             # зависимости Python
+├── 📄 pyproject.toml               # зависимости (uv)
+├── 📄 uv.lock                      # зафиксированные версии пакетов
+├── 📄 .env.example                 # шаблон для переменных окружения
 ├── 📄 .gitignore                   # исключения Git
 │
 ├── 📁 data/                        # данные
@@ -162,17 +207,21 @@ team134-project/
 │   └── 📓 04_dl_models.ipynb       # DL-модели
 │
 ├── 📁 src/                         # исходный код
-│   ├── 📁 data/                    # загрузка и препроцессинг
+│   ├── 📁 data/                    # загрузка и работа с БД
+│   │   ├── 🐍 db.py                # подключение к PostgreSQL
 │   │   ├── 🐍 loader.py
-│   │   └── 🐍 preprocess.py
+│   │   ├── 🐍 preprocess.py
+│   │   └── 🐍 test_connection.py   # скрипт проверки связи с БД
 │   ├── 📁 features/                # генерация признаков
 │   │   └── 🐍 build_features.py
 │   ├── 📁 models/                  # модели
 │   │   ├── 🐍 linear.py
 │   │   ├── 🐍 boosting.py
 │   │   └── 🐍 lstm.py
-│   └── 📁 evaluation/              # метрики и валидация
-│       └── 🐍 metrics.py
+│   ├── 📁 evaluation/              # метрики и валидация
+│   │   └── 🐍 metrics.py
+│   └── 📁 api/                     # FastAPI-сервис
+│       └── 🐍 app.py
 │
 ├── 📁 models/                      # сохранённые веса моделей
 │   └── 📦 best_model.pkl
@@ -201,3 +250,4 @@ team134-project/
 Сделано с ❤️ и ⚡
 
 </div>
+
